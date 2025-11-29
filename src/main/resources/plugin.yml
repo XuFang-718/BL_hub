@@ -3,3 +3,5 @@ version: 1.0.0
 name: BL_Hub
 author: XuFang
 api-version: 1.21
+depend:
+  - AuthMe

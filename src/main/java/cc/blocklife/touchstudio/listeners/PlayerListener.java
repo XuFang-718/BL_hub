@@ -19,6 +19,15 @@ public class PlayerListener implements Listener {
         String playerName = player.getName();
         event.setJoinMessage(ChatColor.GREEN + "[+] " + ChatColor.YELLOW + playerName + ChatColor.GREEN + " 加入了服务器");
 
+        // 发送欢迎消息和广告
+        player.sendMessage("");
+        player.sendMessage(ChatColor.GOLD + "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+        player.sendMessage(ChatColor.AQUA + "  ★ " + ChatColor.WHITE + "欢迎来到 " + ChatColor.GREEN + "BlockLife " + ChatColor.WHITE + "服务器！");
+        player.sendMessage("");
+        player.sendMessage(ChatColor.YELLOW + "  ✦ " + ChatColor.WHITE + "永久服务器IP: " + ChatColor.LIGHT_PURPLE + "我的世界.net");
+        player.sendMessage(ChatColor.GOLD + "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+        player.sendMessage("");
+
         // 隐藏玩家功能
         if (BL_Hub.getInstance().getConfig().getBoolean("hide-players", true)) {
             // 对新加入的玩家隐藏所有在线玩家
