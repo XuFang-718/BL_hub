@@ -1,0 +1,38 @@
+package cc.blocklife.touchstudio;
+
+import org.bukkit.plugin.java.JavaPlugin;
+import cc.blocklife.touchstudio.managers.PluginManager;
+import cc.blocklife.touchstudio.listeners.PlayerListener;
+import cc.blocklife.touchstudio.listeners.CommandListener;
+
+public class BL_Hub extends JavaPlugin {
+
+    private static BL_Hub instance;
+
+    public static BL_Hub getInstance() {
+        return instance;
+    }
+    
+    @Override
+    public void onEnable() {
+        instance = this;
+
+        // 保存默认配置文件
+        saveDefaultConfig();
+        
+        // Initialize managers
+        PluginManager.getInstance().initialize();
+        
+        // Register listeners
+        getServer().getPluginManager().registerEvents(new PlayerListener(), this);
+        getServer().getPluginManager().registerEvents(new CommandListener(), this);
+        
+        getLogger().info("BL_Hub has been enabled!");
+    }
+
+    @Override
+    public void onDisable() {
+        getLogger().info("BL_Hub has been disabled!");
+    }
+    
+}

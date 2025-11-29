@@ -1,0 +1,13 @@
+# 允许使用的指令列表
+allowed-commands:
+  - "l"
+  - "login"
+  - "register"
+  - "reg"
+  - "cp"
+
+# 聊天锁定 - 开启后玩家无法发送任何消息
+chat-locked: false
+
+# 隐藏玩家 - 开启后玩家之间互相看不见，Tab也不显示其他玩家
+hide-players: true

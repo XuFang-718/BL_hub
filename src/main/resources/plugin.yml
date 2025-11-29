@@ -1,0 +1,5 @@
+main: cc.blocklife.touchstudio.BL_Hub
+version: 1.0.0
+name: BL_Hub
+author: XuFang
+api-version: 1.21
