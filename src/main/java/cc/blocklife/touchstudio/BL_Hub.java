@@ -5,6 +5,7 @@ import cc.blocklife.touchstudio.managers.PluginManager;
 import cc.blocklife.touchstudio.listeners.PlayerListener;
 import cc.blocklife.touchstudio.listeners.CommandListener;
 import cc.blocklife.touchstudio.listeners.AuthListener;
+import cc.blocklife.touchstudio.listeners.WorldListener;
 
 public class BL_Hub extends JavaPlugin {
 
@@ -31,6 +32,7 @@ public class BL_Hub extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new PlayerListener(), this);
         getServer().getPluginManager().registerEvents(new CommandListener(), this);
         getServer().getPluginManager().registerEvents(new AuthListener(), this);
+        getServer().getPluginManager().registerEvents(new WorldListener(), this);
         
         getLogger().info("BL_Hub has been enabled!");
     }

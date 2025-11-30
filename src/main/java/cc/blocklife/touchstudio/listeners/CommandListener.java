@@ -22,6 +22,11 @@ public class CommandListener implements Listener {
         return commands;
     }
 
+    // 需要隐藏密码的指令
+    private static final Set<String> PASSWORD_COMMANDS = new HashSet<>(java.util.Arrays.asList(
+            "l", "login", "register", "reg"
+    ));
+
     @EventHandler(priority = EventPriority.LOWEST)
     public void onPlayerCommand(PlayerCommandPreprocessEvent event) {
         String message = event.getMessage().toLowerCase();
@@ -29,6 +34,19 @@ public class CommandListener implements Listener {
 
         if (!getAllowedCommands().contains(command)) {
             event.setCancelled(true);
+        }
+    }
+
+    // 阻止登录指令消息发送到聊天框 (防止密码泄露)
+    @EventHandler(priority = EventPriority.LOWEST)
+    public void onPlayerChat(org.bukkit.event.player.AsyncPlayerChatEvent event) {
+        String msg = event.getMessage().toLowerCase();
+        // 如果消息以登录指令开头，取消发送
+        for (String cmd : PASSWORD_COMMANDS) {
+            if (msg.startsWith("/" + cmd + " ") || msg.equals("/" + cmd)) {
+                event.setCancelled(true);
+                return;
+            }
         }
     }
 

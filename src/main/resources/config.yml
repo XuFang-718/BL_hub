@@ -7,10 +7,7 @@ allowed-commands:
   - "cp"
 
 # 聊天锁定 - 开启后玩家无法发送任何消息
-chat-locked: false
-
-# 隐藏玩家 - 开启后玩家之间互相看不见，Tab也不显示其他玩家
-hide-players: true
+chat-locked: true
 
 # 传送物品配置 (登录成功后给予)
 teleport-item:
@@ -18,3 +15,36 @@ teleport-item:
   name: "&a&l点击传送到SMP服务器"
   # BungeeCord服务器名称
   server: "SMP"
+
+# 登录成功后自动传送到服务器
+auto-teleport:
+  # 是否开启自动传送
+  enabled: false
+  # 目标服务器名称
+  server: "SMP"
+
+# 出生点/传送位置配置
+spawn:
+  world: "world"
+  x: -0.5
+  y: 0
+  z: -0.4
+  yaw: 0.1
+  pitch: -3.8
+
+# 虚空保护 - 掉入虚空自动传送到出生点
+void-protection:
+  enabled: true
+  # 低于此Y值触发传送
+  min-y: -64
+
+# 加入服务器给予药水效果
+join-effects:
+  enabled: true
+  # 跳跃提升等级 (1 = 跳跃提升I)
+  jump-boost-level: 2
+  # 速度等级 (1 = 速度I)
+  speed-level: 2
+
+# 禁止水流动
+disable-water-flow: true
